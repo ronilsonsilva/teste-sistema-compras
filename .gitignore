@@ -1,0 +1,22 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/SistemaCompras-v3/.vs
+/SistemaCompras-v3/SistemaCompra.API/bin/Debug/netcoreapp3.1
+/SistemaCompras-v3/SistemaCompra.API/obj
+/SistemaCompras-v3/SistemaCompra.Application/bin/Debug/netstandard2.0
+/SistemaCompras-v3/SistemaCompra.Application/obj
+/SistemaCompras-v3/SistemaCompra.CrossCutting/bin/Debug/netstandard2.0
+/SistemaCompras-v3/SistemaCompra.CrossCutting/obj
+/SistemaCompras-v3/SistemaCompra.Domain/bin/Debug/netstandard2.0
+/SistemaCompras-v3/SistemaCompra.Domain/obj
+/SistemaCompras-v3/SistemaCompra.Domain.Core/bin/Debug/netstandard2.0
+/SistemaCompras-v3/SistemaCompra.Domain.Core/obj
+/SistemaCompras-v3/SistemaCompra.Domain.Test/bin/Debug/netcoreapp3.1
+/SistemaCompras-v3/SistemaCompra.Domain.Test/obj
+/SistemaCompras-v3/SistemaCompra.Infra.Data/bin/Debug/netstandard2.0
+/SistemaCompras-v3/SistemaCompra.Infra.Data/obj
+/SistemaCompras-v3/SistemaCompra.Infra.Data.EF/bin/Debug/netcoreapp3.1
+/SistemaCompras-v3/SistemaCompra.Infra.Data.EF/obj
