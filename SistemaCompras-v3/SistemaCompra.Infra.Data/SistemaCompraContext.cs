@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using SistemaCompra.Domain.Core;
-using SistemaCompra.Domain.Core.Model;
 using SistemaCompra.Domain.ProdutoAggregate;
 using SistemaCompra.Infra.Data.Produto;
 using SistemaCompra.Infra.Data.SolicitacaoCompra;
@@ -19,17 +18,22 @@ namespace SistemaCompra.Infra.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<ProdutoAgg.Produto>()
-            //    .OwnsOne(p => p.Preco)
-            //    .HasData(
-            //        new ProdutoAgg.Produto("Produto01", "Descricao01", "Madeira", 100)
-            //    );
-
             modelBuilder.Ignore<Event>();
 
             modelBuilder.ApplyConfiguration(new ProdutoConfiguration());
             modelBuilder.ApplyConfiguration(new SolicitacaoCompraConfiguration());
-            modelBuilder.ApplyConfiguration(new ItemConfiguration());
+            modelBuilder.ApplyConfiguration(new ProdutoConfiguration());
+
+            var produtoSeed = new { Id = Guid.NewGuid(), Nome = "Produto01", Descricao = "Descricao01", Categoria = Categoria.Madeira, Situacao = Situacao.Ativo };
+            modelBuilder.Entity<ProdutoAgg.Produto>()
+                .HasData(
+                    produtoSeed
+                );
+            modelBuilder.Entity<ProdutoAgg.Produto>()
+                .OwnsOne(p => p.Preco)
+                .HasData(
+                    new { ProdutoId =  produtoSeed.Id, Value = 100m }
+                );
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

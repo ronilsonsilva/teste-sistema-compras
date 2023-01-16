@@ -6,7 +6,7 @@ namespace SistemaCompra.Domain.Core.Model
 {
     public class Money : ValueObject<Money>
     {
-        public readonly decimal Value;
+        public decimal Value { get; private set; }
 
         public Money()
                 : this(0m)
