@@ -18,12 +18,6 @@ namespace SistemaCompra.Infra.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Ignore<Event>();
-
-            modelBuilder.ApplyConfiguration(new ProdutoConfiguration());
-            modelBuilder.ApplyConfiguration(new SolicitacaoCompraConfiguration());
-            modelBuilder.ApplyConfiguration(new ProdutoConfiguration());
-
             var produtoSeed = new { Id = Guid.NewGuid(), Nome = "Produto01", Descricao = "Descricao01", Categoria = Categoria.Madeira, Situacao = Situacao.Ativo };
             modelBuilder.Entity<ProdutoAgg.Produto>()
                 .HasData(
@@ -34,6 +28,12 @@ namespace SistemaCompra.Infra.Data
                 .HasData(
                     new { ProdutoId =  produtoSeed.Id, Value = 100m }
                 );
+
+            modelBuilder.Ignore<Event>();
+
+            modelBuilder.ApplyConfiguration(new ProdutoConfiguration());
+            modelBuilder.ApplyConfiguration(new SolicitacaoCompraConfiguration());
+            modelBuilder.ApplyConfiguration(new ProdutoConfiguration());
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
