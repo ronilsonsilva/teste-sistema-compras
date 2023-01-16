@@ -11,7 +11,6 @@ namespace SistemaCompra.Domain.ProdutoAggregate
         public Money Preco { get; private set; }
         public string Descricao { get; private set; }
         public string Nome { get; private set; }
-
         public Situacao Situacao { get; private set; }
 
         private Produto(){}

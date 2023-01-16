@@ -13,8 +13,18 @@ namespace SistemaCompra.Domain.SolicitacaoCompraAggregate
 
         public CondicaoPagamento(int condicao)
         {
-            if (!_valoresPossiveis.Contains(condicao)) throw new BusinessRuleException("Condição de pagamento deve ser " +_valoresPossiveis.ToString());
+            Valide(condicao);
+            Valor = condicao;
+        }
 
+        private void Valide(int condicao)
+        {
+            if (!_valoresPossiveis.Contains(condicao)) throw new BusinessRuleException("Condição de pagamento deve ser " + _valoresPossiveis.ToString());
+        }
+
+        public void SetValor(int condicao)
+        {
+            Valide(condicao);
             Valor = condicao;
         }
     }
